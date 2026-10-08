@@ -2,14 +2,13 @@ import './style.css';
 import { createIcons, icons } from 'lucide';
 import confetti from 'canvas-confetti';
 import { CodeRave3DScene } from './three-scene.js';
-import { sound } from './audio.js';
 
 // 1. Initialize Lucide Icons
 function initIcons() {
   createIcons({ icons });
 }
 
-// 2. Initialize Three.js 3D Scene
+// 2. Initialize Three.js 3D Background
 let scene3d = null;
 function init3D() {
   const container = document.getElementById('canvas-container');
@@ -18,65 +17,7 @@ function init3D() {
   }
 }
 
-// 3. Audio & SFX System
-function initAudio() {
-  const soundBtn = document.getElementById('sound-toggle-btn');
-  if (!soundBtn) return;
-
-  soundBtn.addEventListener('click', () => {
-    const isEnabled = sound.toggle();
-    if (isEnabled) {
-      soundBtn.classList.add('active');
-      soundBtn.querySelector('.hud-label').textContent = 'SFX: ON';
-      const iconSpan = soundBtn.querySelector('.sound-icon');
-      iconSpan.setAttribute('data-lucide', 'volume-2');
-      initIcons();
-    } else {
-      soundBtn.classList.remove('active');
-      soundBtn.querySelector('.hud-label').textContent = 'SFX: OFF';
-      const iconSpan = soundBtn.querySelector('.sound-icon');
-      iconSpan.setAttribute('data-lucide', 'volume-x');
-      initIcons();
-    }
-  });
-
-  // Attach hover sounds to buttons and cards
-  const interactiveElements = document.querySelectorAll('.btn, .glass-card, .sched-tab, .hud-btn, .nav-link');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      sound.playHover();
-    });
-    el.addEventListener('click', () => {
-      sound.playClick();
-    });
-  });
-}
-
-// 4. 3D Inspection Mode
-function init3DInspector() {
-  const inspectBtn = document.getElementById('inspect-3d-btn');
-  const canvasContainer = document.getElementById('canvas-container');
-  if (!inspectBtn || !canvasContainer) return;
-
-  let inspecting = false;
-  inspectBtn.addEventListener('click', () => {
-    inspecting = !inspecting;
-    if (scene3d) {
-      scene3d.setInspectionMode(inspecting);
-    }
-    if (inspecting) {
-      inspectBtn.classList.add('active');
-      canvasContainer.classList.add('interactive-mode');
-      inspectBtn.querySelector('.hud-label').textContent = '3D MODE: ACTIVE';
-    } else {
-      inspectBtn.classList.remove('active');
-      canvasContainer.classList.remove('interactive-mode');
-      inspectBtn.querySelector('.hud-label').textContent = '3D CORE MODE';
-    }
-  });
-}
-
-// 5. Countdown Timer
+// 3. Countdown Timer targeting 28 November 2026, 09:00 AM
 function initCountdown() {
   const daysEl = document.getElementById('timer-days');
   const hoursEl = document.getElementById('timer-hours');
@@ -85,14 +26,12 @@ function initCountdown() {
 
   if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
-  // CodeRave Devathon Target Date (or dynamic future countdown)
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 3);
-  targetDate.setHours(17, 0, 0, 0);
+  // Target: 28 Nov 2026, 09:00 AM IST
+  const targetDate = new Date('2026-11-28T09:00:00+05:30').getTime();
 
   function updateTimer() {
     const now = new Date().getTime();
-    const distance = targetDate.getTime() - now;
+    const distance = targetDate - now;
 
     if (distance < 0) {
       daysEl.textContent = '00';
@@ -117,42 +56,7 @@ function initCountdown() {
   setInterval(updateTimer, 1000);
 }
 
-// 6. Metrics Counter Animation
-function initMetricsCounter() {
-  const counters = document.querySelectorAll('.counter');
-  let hasRun = false;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasRun) {
-        hasRun = true;
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          let count = 0;
-          const speed = target / 50;
-
-          const updateCount = () => {
-            count += speed;
-            if (count < target) {
-              counter.innerText = Math.ceil(count);
-              setTimeout(updateCount, 25);
-            } else {
-              counter.innerText = target;
-            }
-          };
-          updateCount();
-        });
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const metricsSection = document.querySelector('.metrics-strip');
-  if (metricsSection) {
-    observer.observe(metricsSection);
-  }
-}
-
-// 7. Schedule Tabs Switching
+// 4. Schedule Day Tabs Switching
 function initScheduleTabs() {
   const tabs = document.querySelectorAll('.sched-tab');
   const panes = document.querySelectorAll('.timeline-pane');
@@ -172,7 +76,7 @@ function initScheduleTabs() {
   });
 }
 
-// 8. FAQ Accordion
+// 5. FAQ Accordion
 function initFAQ() {
   const items = document.querySelectorAll('.faq-item');
 
@@ -183,7 +87,6 @@ function initFAQ() {
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
 
-      // Close all other items for a clean accordion effect
       items.forEach(i => {
         i.classList.remove('open');
         const t = i.querySelector('.faq-trigger');
@@ -198,28 +101,18 @@ function initFAQ() {
   });
 }
 
-// 9. Confetti Celebration
-function initConfetti() {
-  const celebrateBtn = document.getElementById('trigger-confetti-btn');
-  if (!celebrateBtn) return;
-
-  celebrateBtn.addEventListener('click', () => {
-    sound.playChime(750, 0.4);
-    confetti({
-      particleCount: 120,
-      spread: 80,
-      origin: { y: 0.6 },
-      colors: ['#00f5ff', '#a855f7', '#fbbf24', '#ffffff']
-    });
-  });
-}
-
-// 10. Registration Modal & Form Handling
+// 6. Registration & PPT Submission Modal
 function initRegisterModal() {
-  const openBtn = document.getElementById('open-register-modal-btn');
   const modal = document.getElementById('register-modal');
   const closeBtn = document.getElementById('modal-close-btn');
   const form = document.getElementById('pre-register-form');
+
+  const openTriggers = [
+    document.getElementById('nav-submit-ppt-btn'),
+    document.getElementById('hero-submit-ppt-btn'),
+    document.getElementById('footer-submit-ppt-btn'),
+    document.getElementById('mobile-register-btn')
+  ];
 
   if (!modal) return;
 
@@ -233,7 +126,10 @@ function initRegisterModal() {
     document.body.style.overflow = '';
   };
 
-  if (openBtn) openBtn.addEventListener('click', openModal);
+  openTriggers.forEach(btn => {
+    if (btn) btn.addEventListener('click', openModal);
+  });
+
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
   modal.addEventListener('click', (e) => {
@@ -244,35 +140,34 @@ function initRegisterModal() {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const teamName = document.getElementById('team-name').value;
+      const mode = document.getElementById('submission-mode').value;
 
-      // Celebrate
+      // Celebrate with confetti
       confetti({
-        particleCount: 150,
-        spread: 90,
+        particleCount: 120,
+        spread: 80,
         origin: { y: 0.5 },
-        colors: ['#00f5ff', '#a855f7', '#fbbf24']
+        colors: ['#4f46e5', '#06b6d4', '#7c3aed', '#f59e0b']
       });
 
-      // Show instant confirmation
       const modalHeader = modal.querySelector('.modal-header');
       if (modalHeader) {
         modalHeader.innerHTML = `
-          <div class="status-pill text-cyan">PASS CONFIRMED ⚡</div>
-          <h3 class="gradient-text-cyan-purple">Welcome Team ${teamName}!</h3>
-          <p>Your team reservation has been recorded. Redirecting to official Devfolio portal to finalize submission...</p>
+          <div class="status-pill">SUBMISSION CONFIRMED 🎉</div>
+          <h3 class="gradient-text-primary">Team ${teamName} Registered!</h3>
+          <p>Your team registration for Day 1 PPT (${mode.toUpperCase()}) has been recorded. Check your email for screening updates and shortlist announcements.</p>
         `;
       }
       form.style.display = 'none';
 
       setTimeout(() => {
-        window.open('https://code-rave.devfolio.co/overview', '_blank');
         closeModal();
-      }, 2200);
+      }, 3000);
     });
   }
 }
 
-// 11. Mobile Drawer Navigation
+// 7. Mobile Navigation Drawer
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-toggle');
   const drawer = document.getElementById('mobile-drawer');
@@ -291,25 +186,18 @@ function initMobileMenu() {
   });
 }
 
-// 12. Scroll Effects & Back to Top
+// 8. Scroll Effects & Back to Top
 function initScrollEffects() {
   const topBtn = document.getElementById('scroll-to-top');
-  const navbar = document.querySelector('.navbar');
 
+  // Active link highlighting
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      navbar?.classList.add('scrolled');
-    } else {
-      navbar?.classList.remove('scrolled');
-    }
-
-    // Active link highlighting
     const sections = document.querySelectorAll('section[id]');
     const scrollY = window.pageYOffset;
 
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 150;
+      const sectionTop = current.offsetTop - 140;
       const sectionId = current.getAttribute('id');
       const navLink = document.querySelector(`.nav-menu a[href*=${sectionId}]`);
 
@@ -328,17 +216,13 @@ function initScrollEffects() {
   }
 }
 
-// Initialize everything on DOM Content Loaded
+// Initialize on DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
   initIcons();
   init3D();
-  initAudio();
-  init3DInspector();
   initCountdown();
-  initMetricsCounter();
   initScheduleTabs();
   initFAQ();
-  initConfetti();
   initRegisterModal();
   initMobileMenu();
   initScrollEffects();

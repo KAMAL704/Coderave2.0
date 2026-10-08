@@ -1,60 +1,51 @@
-# ⚡ CodeRave 2.0 — Official 3D Hackathon Website
+# ⚡ CodeRave 2.0 — Official Hackathon Website
 
 > **CODE • COLLABORATE • INNOVATE**  
-> Northern India's Premier 36-Hour Annual Coding Carnival organized by **Internwell SLIET** in collaboration with **SSDC (SLIET Software Development Club)** at **Sant Longowal Institute of Engineering and Technology (SLIET), Punjab**.
+> Organized exclusively for **SLIET Students** by **Internwell SLIET** in collaboration with **SSDC (SLIET Software Development Club)** at **Sant Longowal Institute of Engineering and Technology (SLIET), Punjab**.  
+> **Event Dates**: 28th – 29th November, 2026
 
 ---
 
-## 🌟 Highlights & Features
+## 🌟 Tournament Structure & Highlights
 
-- **Interactive 3D WebGL Engine (Three.js)**:
-  - Futuristic holographic **CodeRave Quantum Core** (Torus Knot wireframe + pulsating dual icosahedrons).
-  - Orbiting data nodes on planetary cyber rings with real-time lighting physics.
-  - Interactive stardust galaxy with 2,200+ reactive particles responding to cursor parallax and scroll progress.
-  - **3D Inspection Mode**: Toggle manual inspection mode from the HUD.
-- **Procedural Audio Synthesizer (Web Audio API)**:
-  - Subtle sci-fi hover and click feedback, plus ambient generative frequency with HUD mute/play controls.
-- **3-Phase Tournament Pathway**:
-  - **Phase 01: ALGO UNLOCK** (April 7, 2024) — Competitive programming and data structure sprint.
-  - **Phase 02: CODE SPRINT** (April 11–12, 2024) — Rapid architecture, git setup, and mentorship milestones.
-  - **Phase 03: DEVATHON** (April 12–14, 2024) — Flagship 36-hour non-stop marathon and live demo pitches.
-- **Prizes & Bounties**:
-  - ₹40,000 Grand Champion prize + Winner Kits + direct internship fast-track.
-  - ₹25,000 1st Runner Up + ₹15,000 2nd Runner Up.
-  - $399+ Devfolio Partner Bounties (Polygon $200, ETHIndia $100, SLIET Campus $99).
-- **Interactive Schedule**:
-  - Multi-day timeline tabs (Day 1 Kickoff, Day 2 Midnight Grind, Day 3 Final Demos & Awards).
-- **Comprehensive Sponsor Matrix**:
-  - Full brochure deliverables table across 4 tiers (Premium Elite ₹40k, ProTech Elite ₹30k, Innovate Plus ₹20k, TechStart Basics ₹10k).
-  - Past sponsor showcase: Coca-Cola, Dell, SBI, Infowiz, Coding Minutes, Beyond Snack, Red FM 93.5, Miro, Gather, Meta, and Šviesa.
-- **Organizing Team Showcase**:
-  - Direct contacts for Coordinators, Tech Heads, Marketing Head, Management Head, and Sponsorship Head.
-  - Featured judge Vaishnavi P. (Senior Software Developer, Pine Labs).
-- **Interactive Modals & Integrations**:
-  - Fast Team Pass pre-registration modal with celebratory confetti bursts (`canvas-confetti`).
-  - Direct links to official [Devfolio portal](https://code-rave.devfolio.co/overview).
+1. **Round 1 (28 Nov 2026) — PPT Submission & Screening**:
+   - Both **Online (portal submission)** and **Offline (SLIET campus desk)** submission modes available.
+   - Evaluation of problem statements, architectures, and feasibility.
+   - Announcement of shortlisted finalist teams.
+
+2. **Round 2 (29 Nov 2026) — 24-Hour Live Demo Build Challenge**:
+   - Shortlisted teams receive a 24-hour sprint to build and deploy working prototypes.
+   - Continuous mentorship from SSDC and senior developers.
+
+3. **Grand Finale — Live Pitching & Judging**:
+   - Teams demonstrate functional code before the jury panel.
+   - Final evaluation and winner honours.
+
+4. **Prizes & Rewards**:
+   - Prize pool to be revealed soon (Cash prizes, winner trophies, mementos, official merchandise, verified certificates, and internship referral pipelines through Internwell).
+
+5. **Past Backers & Sponsors Showcase**:
+   - Backed in past editions by Coca-Cola, Dell, State Bank of India, Coding Minutes, Infowiz, Red FM 93.5, Beyond Snack, Miro, Gather, Meta, and Šviesa.
+
+6. **Clean Modern Dashboard Aesthetic**:
+   - Attractive light-mode hackathon dashboard styling with smooth Three.js 3D ambient animated background.
+   - Interactive schedule timeline tabs (Day 1 vs Day 2), real-time countdown to Nov 28, 2026, and team registration modal.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Core**: Vanilla HTML5, Vanilla JavaScript (ES Modules)
-- **Styling**: Vanilla CSS (Cyberpunk glassmorphism, responsive design, custom properties)
-- **3D Graphics**: [Three.js](https://threejs.org/) (WebGL, BufferGeometry, PointLights, Particles)
+- **Styling**: Vanilla CSS (Modern Light Dashboard, Glassmorphism, Responsive)
+- **3D Graphics**: [Three.js](https://threejs.org/) (WebGL ambient geometry & particle dust)
 - **Icons**: [Lucide Icons](https://lucide.dev/)
 - **Visual FX**: [canvas-confetti](https://www.npmjs.com/package/canvas-confetti)
 - **Build Tool**: [Vite](https://vitejs.dev/)
-- **Deployment**: Automated GitHub Pages workflow via GitHub Actions
+- **Deployment**: GitHub Pages workflow via GitHub Actions
 
 ---
 
-## 🚀 Getting Started Locally
-
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm
-
-### Installation
+## 🚀 Running Locally
 
 ```bash
 # Clone the repository
@@ -66,21 +57,11 @@ cd Coderave2.0
 # Install dependencies
 npm install
 
-# Start local development server
+# Start development server
 npm run dev
 ```
 
 Visit `http://localhost:5173` to explore the website.
-
-### Production Build
-
-```bash
-# Build optimized bundle
-npm run build
-
-# Preview production build locally
-npm run preview
-```
 
 ---
 
@@ -90,9 +71,9 @@ npm run preview
 - **CodeRave Instagram**: [@coder.ave](https://www.instagram.com/coder.ave/)
 - **LinkedIn**: [CodeRave](https://www.linkedin.com/company/coderave/about/)
 - **Email**: `team@coderave.in`
-- **Phone**: +91 8955557404 / +91 6201375739
+- **Phone**: +91 8955557404 (Krishan) / +91 6201375739 (Kundan)
 - **Venue**: Sant Longowal Institute of Engineering and Technology (SLIET), Sangrur, Punjab - 148106
 
 ---
 
-© 2024 CodeRave 2.0. Crafted for Internwell SLIET & SSDC.
+© 2026 CodeRave 2.0. Organized by Internwell SLIET & SSDC.
