@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeRave 2.0 | SLIET Student Hackathon • 28–29 Nov 2026</title>
+  <title>CodeRave 2.0 | Official SLIET Hackathon • 28–29 Nov 2026</title>
   <meta name="description" content="CodeRave 2.0 is the official collegiate hackathon organized exclusively for SLIET students by Internwell on 28-29 November 2026. Day 1 PPT Submission (Online & Offline) → Shortlisting → 24-Hour Live Demo Build → Winner Selection." />
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
@@ -23,18 +23,35 @@
   <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
-  <!-- CycleOne Style Preloader Overlay -->
+  <!-- CycleOne Style Preloader Overlay with Official Logo & 5-Second Timer -->
   <div id="loading-overlay">
     <div class="loader-brand">
-      <div class="loader-logo-ring">CR</div>
-      <span class="loader-text">CodeRave 2.0</span>
+      <img src="/assets/coderave-logo.png" alt="CodeRave 2.0 Official Logo" class="official-logo-loader" />
+      
+      <div class="loader-countdown-box">
+        <div class="loader-timer-ring">
+          <svg viewBox="0 0 80 80">
+            <defs>
+              <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF8800" />
+                <stop offset="100%" stop-color="#FA002D" />
+              </linearGradient>
+            </defs>
+            <circle class="bg" cx="40" cy="40" r="35"></circle>
+            <circle class="prog" id="loader-timer-prog" cx="40" cy="40" r="35"></circle>
+          </svg>
+          <span class="loader-timer-num" id="loader-timer">5</span>
+        </div>
+        <span class="loader-msg">LAUNCHING CODERAVE 2.0</span>
+        <button class="loader-skip-btn" id="loader-skip-btn">Skip & Enter Now &rarr;</button>
+      </div>
     </div>
   </div>
 
-  <!-- Navigation Bar (CycleOne Architecture) -->
+  <!-- Navigation Bar (CycleOne Architecture with Official Logo) -->
   <nav class="navbar">
     <a href="#home" class="logo-section">
-      <div class="logo-icon">CR</div>
+      <img src="/assets/coderave-logo.png" alt="CodeRave 2.0" class="nav-official-logo" />
       <div class="brand">
         <span class="company-name">CodeRave</span>
         <span class="nav-tagline">CODE•COLLABORATE•INNOVATE</span>
@@ -56,8 +73,12 @@
         <span class="nav-text">About</span>
         <div class="nav-line"></div>
       </a>
-      <a href="#timeline" class="nav-item">
-        <span class="nav-text">Timeline</span>
+      <a href="#past-events" class="nav-item">
+        <span class="nav-text">Past Events</span>
+        <div class="nav-line"></div>
+      </a>
+      <a href="#upcoming-event" class="nav-item">
+        <span class="nav-text">Upcoming Event</span>
         <div class="nav-line"></div>
       </a>
       <a href="#model" class="nav-item">
@@ -80,41 +101,73 @@
         <span class="nav-text">Contact</span>
         <div class="nav-line"></div>
       </a>
-      <button class="nav-cta-btn open-register-trigger">SUBMIT PPT</button>
+      <button class="nav-cta-btn open-register-trigger">
+        <i class="fa-solid fa-bolt" style="margin-right: 5px;"></i>
+        HACKATHON LINK
+      </button>
     </div>
   </nav>
 
-  <!-- Hero Section (#home) with Interactive Three.js Particle Canvas -->
+  <!-- Hero Section (#home) with Three.js Particle Canvas -->
   <section id="home">
     <canvas id="particleCanvas"></canvas>
     
     <div class="hero" data-aos="zoom-in">
       <div class="hero-content">
+        <!-- Official Logo Presentation in Hero -->
+        <img src="/assets/coderave-logo.png" alt="CodeRave 2.0 Official Logo" class="hero-official-logo" />
+
         <h1>Welcome to CODERAVE 2.0</h1>
         
-        <div class="slogan" data-aos="fade-up" data-aos-delay="150">
+        <div class="slogan" data-aos="fade-up" data-aos-delay="100">
           CODE<span class="slogan-separator">•</span>COLLABORATE<span class="slogan-separator">•</span>INNOVATE
         </div>
 
-        <div class="hero-sub-box" data-aos="fade-up" data-aos-delay="200">
-          <p>
-            <strong>28–29 November 2026</strong> • Sant Longowal Institute of Engineering & Technology (SLIET), Punjab<br />
-            Organized exclusively for SLIET students by <strong>Internwell</strong>
-          </p>
+        <!-- SEPARATE DATES, SLIET NAME & ORGANIZER PILL BADGES -->
+        <div class="hero-badges-row" data-aos="fade-up" data-aos-delay="200">
+          <!-- Date Badge -->
+          <div class="hero-pill-badge date-badge">
+            <i class="fa-solid fa-calendar-days badge-icon"></i>
+            <div class="badge-content">
+              <span class="badge-label">Event Dates</span>
+              <span class="badge-text">28 – 29 November 2026</span>
+              <span class="badge-sub">Day 1 PPT Submission • Day 2 24H Live Demo Sprint</span>
+            </div>
+          </div>
+
+          <!-- SLIET Campus Badge -->
+          <div class="hero-pill-badge sliet-badge">
+            <i class="fa-solid fa-graduation-cap badge-icon"></i>
+            <div class="badge-content">
+              <span class="badge-label">Venue</span>
+              <span class="badge-text">Sant Longowal Institute of Engineering & Technology (SLIET)</span>
+              <span class="badge-sub">Longowal, Sangrur, Punjab 148106</span>
+            </div>
+          </div>
+
+          <!-- Organizer Badge -->
+          <div class="hero-pill-badge organizer-badge">
+            <i class="fa-solid fa-shield-halved badge-icon"></i>
+            <div class="badge-content">
+              <span class="badge-label">Organized Exclusively By</span>
+              <span class="badge-text">Internwell SLIET</span>
+              <span class="badge-sub">For All SLIET Students • 100% Free Participation</span>
+            </div>
+          </div>
         </div>
 
         <p class="cta-tagline">Let's code the </p>
         <h1 class="future-txt">FUTURE</h1>
 
+        <!-- Direct Hackathon CTAs -->
         <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
           <button class="hero-btn primary open-register-trigger">
-            <i class="fa-solid fa-file-arrow-up"></i>
-            SUBMIT PPT (ONLINE / OFFLINE)
+            <i class="fa-solid fa-bolt"></i>
+            HACKATHON LINK
           </button>
           <button class="hero-btn secondary open-register-trigger">
-            <i class="fa-solid fa-bolt"></i>
-            DEVFOLIO REGISTRATION
-            <span class="tag-badge">LINK SOON</span>
+            <i class="fa-solid fa-file-arrow-up"></i>
+            SUBMIT DAY 1 PPT (ONLINE / OFFLINE)
           </button>
         </div>
 
@@ -140,6 +193,47 @@
             <span class="timer-lbl">SECONDS</span>
           </div>
         </div>
+
+        <!-- Past Event Images Showcase in First Page -->
+        <div class="hero-past-strip" data-aos="fade-up" data-aos-delay="400">
+          <div class="hero-past-title">
+            <i class="fa-solid fa-images" style="color: #FF8800;"></i>
+            Past Event Highlights & Archive
+          </div>
+          <div class="hero-past-cards-grid">
+            <a href="#past-events" class="hero-past-mini-card">
+              <img src="/assets/past-events/past_1_arena.svg" alt="CodeRave 1.0 Arena" />
+              <div class="hero-past-mini-info">
+                <span class="hero-past-mini-name">CodeRave 1.0</span>
+                <span class="hero-past-mini-sub">500+ Participants Arena</span>
+              </div>
+            </a>
+
+            <a href="#past-events" class="hero-past-mini-card">
+              <img src="/assets/past-events/past_2_pitch.svg" alt="Jury Presentations" />
+              <div class="hero-past-mini-info">
+                <span class="hero-past-mini-name">Jury Presentations</span>
+                <span class="hero-past-mini-sub">Live Demos to Tech Leaders</span>
+              </div>
+            </a>
+
+            <a href="#past-events" class="hero-past-mini-card">
+              <img src="/assets/past-events/past_3_spardha.svg" alt="Coding Spardha 2023" />
+              <div class="hero-past-mini-info">
+                <span class="hero-past-mini-name">Coding Spardha</span>
+                <span class="hero-past-mini-sub">Competitive Coding Genesis</span>
+              </div>
+            </a>
+
+            <a href="#past-events" class="hero-past-mini-card">
+              <img src="/assets/past-events/past_4_awards.svg" alt="Grand Awards" />
+              <div class="hero-past-mini-info">
+                <span class="hero-past-mini-name">Felicitation</span>
+                <span class="hero-past-mini-sub">Trophies & Referrals</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
@@ -152,7 +246,7 @@
   <section id="about">
     <h2 data-aos="fade-up">About CodeRave 2.0</h2>
     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-      SLIET's flagship collegiate hackathon organized exclusively by Internwell to inspire the next generation of engineers and problem-solvers.
+      SLIET's flagship collegiate hackathon organized exclusively by Internwell to inspire student developers and engineers.
     </p>
 
     <div class="about-container">
@@ -206,77 +300,129 @@
     </div>
   </section>
 
-  <!-- Timeline Section (#timeline) -->
-  <section id="timeline">
-    <h2 data-aos="fade-down">Our Journey & Roadmap</h2>
-    <p class="leader" data-aos="fade-up">Milestones that fueled our growth and technical innovation at SLIET.</p>
+  <!-- PAST EVENTS SECTION (#past-events) -->
+  <section id="past-events">
+    <h2 data-aos="fade-up">Past Events Archive</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      Visual archive of previous technical tournaments that fueled innovation and community triumphs at SLIET.
+    </p>
 
-    <div class="timeline-wrapper">
-      <div class="bottom-dot"></div>
-
-      <!-- Milestone 01 -->
-      <div class="timeline-card left" data-aos="fade-right">
-        <div class="content">
-          <span class="badge-phase">FOUNDATION</span>
-          <div class="number">01</div>
-          <h2>Coding Spardha Roots</h2>
-          <p>The genesis of competitive programming contests at SLIET Longowal, cultivating a vibrant student developer ethos across departments.</p>
+    <div class="past-events-grid">
+      <!-- Past Event 1: CodeRave 1.0 -->
+      <div class="past-event-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="past-event-img-wrap">
+          <img src="/assets/past-events/past_1_arena.svg" alt="CodeRave 1.0 Arena" />
         </div>
-        <div class="hover-image">
-          <img src="/assets/timeline/coding_spardha.svg" alt="Coding Spardha" />
+        <div class="past-event-body">
+          <span class="past-event-tag">FLAGSHIP 2024</span>
+          <h3>CodeRave 1.0 — 24H Live Sprint</h3>
+          <p>
+            The maiden edition of CodeRave drew over 500+ participants and 120 teams into a 24-hour non-stop hacking sprint, building groundbreaking web, app, and hardware solutions.
+          </p>
         </div>
       </div>
 
-      <!-- Milestone 02 -->
-      <div class="timeline-card right" data-aos="fade-left">
-        <div class="content">
-          <span class="badge-phase">MAIDEN EDITION</span>
-          <div class="number">02</div>
-          <h2>CodeRave 1.0</h2>
-          <p>The grand inaugural hackathon gathering 500+ student participants, delivering ground-breaking software solutions with industry backing.</p>
+      <!-- Past Event 2: Jury Demos -->
+      <div class="past-event-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="past-event-img-wrap">
+          <img src="/assets/past-events/past_2_pitch.svg" alt="Jury Presentations" />
         </div>
-        <div class="hover-image">
-          <img src="/assets/timeline/coderave_1.svg" alt="CodeRave 1.0" />
-        </div>
-      </div>
-
-      <!-- Milestone 03 -->
-      <div class="timeline-card left" data-aos="fade-right">
-        <div class="content">
-          <span class="badge-phase">KICKOFF • NOV 2026</span>
-          <div class="number">03</div>
-          <h2>Reignition</h2>
-          <p>Registration rollout and problem statement unveiling across SLIET branches. Teams ideate and prepare their preliminary decks.</p>
-        </div>
-        <div class="hover-image">
-          <img src="/assets/timeline/reignition_2026.svg" alt="Reignition" />
+        <div class="past-event-body">
+          <span class="past-event-tag">INDUSTRY JURY</span>
+          <h3>Live Demo Pitches & Evaluation</h3>
+          <p>
+            Finalist teams showcased live functioning prototypes on stage before industry mentors, Pine Labs senior software engineers, and SLIET faculty.
+          </p>
         </div>
       </div>
 
-      <!-- Milestone 04 -->
-      <div class="timeline-card right" data-aos="fade-left">
-        <div class="content">
-          <span class="badge-phase">28 NOV 2026</span>
-          <div class="number">04</div>
-          <h2>Day 1: Idea Forge</h2>
-          <p>PPT Submission day! Teams submit idea decks both online through portal and offline on campus. Mentors and jury review and shortlist top contenders.</p>
+      <!-- Past Event 3: Coding Spardha -->
+      <div class="past-event-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="past-event-img-wrap">
+          <img src="/assets/past-events/past_3_spardha.svg" alt="Coding Spardha 2023" />
         </div>
-        <div class="hover-image">
-          <img src="/assets/timeline/idea_forge.svg" alt="Idea Forge" />
+        <div class="past-event-body">
+          <span class="past-event-tag">FOUNDATION 2023</span>
+          <h3>Coding Spardha (2023)</h3>
+          <p>
+            The inaugural algorithmic coding tournament that ignited competitive programming culture and interdisciplinary collaboration across SLIET departments.
+          </p>
         </div>
       </div>
 
-      <!-- Milestone 05 -->
-      <div class="timeline-card left" data-aos="fade-right">
-        <div class="content">
-          <span class="badge-phase">29 NOV 2026</span>
-          <div class="number">05</div>
-          <h2>Day 2: Prototype Arena</h2>
-          <p>24-Hour live coding sprint! Shortlisted teams develop working live demos non-stop, followed by pitches to Pine Labs jury to crown the winners.</p>
+      <!-- Past Event 4: Felicitation & Awards -->
+      <div class="past-event-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="past-event-img-wrap">
+          <img src="/assets/past-events/past_4_awards.svg" alt="Grand Felicitation" />
         </div>
-        <div class="hover-image">
-          <img src="/assets/timeline/prototype_arena.svg" alt="Prototype Arena" />
+        <div class="past-event-body">
+          <span class="past-event-tag">HONOURS & PERKS</span>
+          <h3>Grand Felicitation Ceremony</h3>
+          <p>
+            Crowning tournament champions with trophies, official swag kits, verified credentials, and direct placement/internship referral fast-tracks via Internwell.
+          </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENT SECTION (#upcoming-event) — CODERAVE 2.0 -->
+  <section id="upcoming-event">
+    <h2 data-aos="fade-up">Upcoming Event: CodeRave 2.0</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      28th – 29th November, 2026 • The next evolution of competitive hacking exclusively for SLIET students.
+    </p>
+
+    <div class="upcoming-phases-grid">
+      <!-- Phase 1 -->
+      <div class="phase-card" data-aos="fade-right" data-aos-delay="100">
+        <span class="phase-badge-top">PHASE 01 • DAY 1</span>
+        <h3>Idea Forge (PPT Submission)</h3>
+        <div class="phase-date-sub">
+          <i class="fa-solid fa-calendar-day" style="margin-right: 6px;"></i> 28 November 2026 • 09:00 AM IST
+        </div>
+        <p>
+          Teams submit their idea pitch deck either online via our submission tab or drop it physically at the SLIET campus desk.
+        </p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Online Drive PPT deck submission</li>
+          <li><i class="fa-solid fa-check"></i> Offline campus desk drop (Central Hall)</li>
+          <li><i class="fa-solid fa-check"></i> Mentor review & finalist shortlisting</li>
+        </ul>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-card featured" data-aos="fade-up" data-aos-delay="200">
+        <span class="phase-badge-top">PHASE 02 • DAY 2</span>
+        <h3>Prototype Arena (24H Sprint)</h3>
+        <div class="phase-date-sub">
+          <i class="fa-solid fa-clock" style="margin-right: 6px;"></i> 29 November 2026 • 24 Hours Non-Stop
+        </div>
+        <p>
+          Shortlisted teams enter the 24-hour live coding marathon to transform their approved PPT slides into a working live demo.
+        </p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> 24 continuous hours of live development</li>
+          <li><i class="fa-solid fa-check"></i> Midnight mentorship & debugging support</li>
+          <li><i class="fa-solid fa-check"></i> Full working prototype deployment</li>
+        </ul>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-card" data-aos="fade-left" data-aos-delay="300">
+        <span class="phase-badge-top">PHASE 03 • FINALE</span>
+        <h3>Live Pitch & Winner Decided</h3>
+        <div class="phase-date-sub">
+          <i class="fa-solid fa-trophy" style="margin-right: 6px;"></i> 29 November 2026 Evening • Grand Jury
+        </div>
+        <p>
+          Finalists demonstrate working code before our distinguished jury, including Pine Labs software engineers and faculty.
+        </p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Live stage demo & architecture defence</li>
+          <li><i class="fa-solid fa-check"></i> Q&A with Pine Labs evaluation jury</li>
+          <li><i class="fa-solid fa-check"></i> Champion crowning & award reveal</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -598,7 +744,7 @@
     </div>
   </section>
 
-  <!-- Past Sponsors Section (#sponsors) -->
+  <!-- PAST SPONSORS SECTION (#sponsors) WITH AUTHENTIC LOGO PHOTOS & NAMES -->
   <section id="sponsors">
     <h2 data-aos="fade-up">Our Past Sponsors</h2>
     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
@@ -606,39 +752,67 @@
     </p>
 
     <div class="sponsors-grid" data-aos="fade-up" data-aos-delay="200">
+      <!-- 1. Coca-Cola -->
       <div class="sponsor-card">
-        <span class="sponsor-brand-name">Beyond Snack</span>
-        <span class="sponsor-category">Kerala Banana Chips</span>
+        <img src="/assets/sponsors/coca_cola.svg" alt="Coca-Cola Logo" class="sponsor-logo-img" />
+        <div class="sponsor-info">
+          <span class="sponsor-brand-name">Coca-Cola</span>
+          <span class="sponsor-category">Official Beverage Partner</span>
+        </div>
       </div>
 
+      <!-- 2. DELL Technologies -->
       <div class="sponsor-card">
-        <span class="sponsor-brand-name">Coding Minutes</span>
-        <span class="sponsor-category">EdTech & Upskilling</span>
+        <img src="/assets/sponsors/dell.svg" alt="DELL Technologies Logo" class="sponsor-logo-img" />
+        <div class="sponsor-info">
+          <span class="sponsor-brand-name">DELL Technologies</span>
+          <span class="sponsor-category">Hardware & Tech Partner</span>
+        </div>
       </div>
 
+      <!-- 3. State Bank of India -->
       <div class="sponsor-card">
-        <span class="sponsor-brand-name">INFOWIZ</span>
-        <span class="sponsor-category">Software Solutions</span>
+        <img src="/assets/sponsors/sbi.svg" alt="State Bank of India Logo" class="sponsor-logo-img" />
+        <div class="sponsor-info">
+          <span class="sponsor-brand-name">State Bank of India</span>
+          <span class="sponsor-category">Official Banking Partner</span>
+        </div>
       </div>
 
+      <!-- 4. 93.5 RED FM -->
       <div class="sponsor-card">
-        <span class="sponsor-brand-name">93.5 RED FM</span>
-        <span class="sponsor-category">Media & Radio Partner</span>
+        <img src="/assets/sponsors/red_fm.svg" alt="93.5 RED FM Logo" class="sponsor-logo-img" />
+        <div class="sponsor-info">
+          <span class="sponsor-brand-name">93.5 RED FM</span>
+          <span class="sponsor-category">Media & Radio Partner</span>
+        </div>
       </div>
 
+      <!-- 5. Beyond Snack -->
       <div class="sponsor-card">
-        <span class="sponsor-brand-name">Coca-Cola</span>
-        <span class="sponsor-category">Beverage Partner</span>
+        <img src="/assets/sponsors/beyond_snack.svg" alt="Beyond Snack Logo" class="sponsor-logo-img" />
+        <div class="sponsor-info">
+          <span class="sponsor-brand-name">Beyond Snack</span>
+          <span class="sponsor-category">Kerala Banana Chips</span>
+        </div>
       </div>
 
+      <!-- 6. Coding Minutes -->
       <div class="sponsor-card">
-        <span class="sponsor-brand-name">State Bank of India</span>
-        <span class="sponsor-category">Banking Partner</span>
+        <img src="/assets/sponsors/coding_minutes.svg" alt="Coding Minutes Logo" class="sponsor-logo-img" />
+        <div class="sponsor-info">
+          <span class="sponsor-brand-name">Coding Minutes</span>
+          <span class="sponsor-category">EdTech & Upskilling Partner</span>
+        </div>
       </div>
 
+      <!-- 7. INFOWIZ -->
       <div class="sponsor-card">
-        <span class="sponsor-brand-name">DELL Technologies</span>
-        <span class="sponsor-category">Hardware & Tech Partner</span>
+        <img src="/assets/sponsors/infowiz.svg" alt="INFOWIZ Logo" class="sponsor-logo-img" />
+        <div class="sponsor-info">
+          <span class="sponsor-brand-name">INFOWIZ</span>
+          <span class="sponsor-category">Software Solutions Partner</span>
+        </div>
       </div>
     </div>
   </section>
@@ -673,11 +847,11 @@
     </div>
   </section>
 
-  <!-- CycleOne Style Footer -->
+  <!-- CycleOne Style Footer with Official Logo -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section about">
-        <h3>About CodeRave 2.0</h3>
+        <img src="/assets/coderave-logo.png" alt="CodeRave 2.0" class="footer-official-logo" />
         <p>
           CodeRave 2.0 is the official 24-hour hackathon for SLIET students organized exclusively by <strong>Internwell</strong>. Day 1 PPT Submission (Online & Offline) leading to a 24-hour live coding marathon on 28–29 Nov 2026.
         </p>
@@ -697,7 +871,8 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#past-events">Past Events</a></li>
+          <li><a href="#upcoming-event">Upcoming Event</a></li>
           <li><a href="#model">Working Model</a></li>
           <li><a href="#funding">Prizes</a></li>
           <li><a href="#team">Our Team</a></li>
@@ -709,17 +884,18 @@
         <h3>Rules & Eligibility</h3>
         <ul>
           <li><a href="#about">SLIET Students Exclusive</a></li>
-          <li><a href="#model">Day 1 PPT Submission</a></li>
-          <li><a href="#model">24-Hour Live Demo Rule</a></li>
+          <li><a href="#upcoming-event">Day 1 PPT Submission</a></li>
+          <li><a href="#upcoming-event">24-Hour Live Demo Rule</a></li>
           <li><a href="#team">Internwell Guidance</a></li>
         </ul>
       </div>
 
       <div class="footer-section newsletter">
-        <h3>Event Registration</h3>
-        <p>Day 1 PPT submissions are open both online and offline on campus.</p>
+        <h3>Hackathon Portal</h3>
+        <p>Access the official hackathon submission portal and resources.</p>
         <button class="hero-btn primary open-register-trigger" style="width: 100%; justify-content: center; font-size: 0.85rem; padding: 10px 18px;">
-          SUBMIT PPT NOW
+          <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i>
+          OPEN HACKATHON LINK
         </button>
       </div>
     </div>
@@ -729,20 +905,20 @@
     </div>
   </footer>
 
-  <!-- Registration & PPT Submission Modal -->
+  <!-- Hackathon Portal & PPT Submission Modal -->
   <div class="modal-overlay" id="register-modal">
     <div class="modal-content">
       <button class="modal-close-btn" id="modal-close-btn">&times;</button>
       
-      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; text-align: left;">CodeRave 2.0 Registration</h2>
+      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; text-align: left;">CodeRave 2.0 Hackathon Portal</h2>
       <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
-        Choose your preferred submission method for Day 1:
+        Official access point for Day 1 PPT submission and tournament tracks:
       </p>
 
       <div class="modal-tabs">
-        <button class="modal-tab-btn active" data-tab="online">Online PPT</button>
-        <button class="modal-tab-btn" data-tab="offline">Offline SLIET Drop</button>
-        <button class="modal-tab-btn" data-tab="devfolio">Devfolio Portal</button>
+        <button class="modal-tab-btn active" data-tab="online">Online PPT Submission</button>
+        <button class="modal-tab-btn" data-tab="offline">Offline SLIET Desk</button>
+        <button class="modal-tab-btn" data-tab="devfolio">Hackathon Link</button>
       </div>
 
       <!-- Tab 1: Online PPT Submission -->
@@ -768,7 +944,7 @@
           </div>
           <button type="submit" class="contact-submit-btn">
             <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>
-            SUBMIT DAY 1 PPT NOW
+            SUBMIT DAY 1 PPT
           </button>
         </form>
       </div>
@@ -791,16 +967,16 @@
         </div>
       </div>
 
-      <!-- Tab 3: Devfolio Registration -->
+      <!-- Tab 3: Devfolio Hackathon Portal Link -->
       <div class="modal-tab-panel" id="tab-devfolio">
         <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,136,0,0.2); border-radius: 14px; padding: 20px; text-align: center;">
           <i class="fa-solid fa-bolt" style="font-size: 2.5rem; color: #FF8800; margin-bottom: 12px;"></i>
-          <h4 style="color: #fff; margin-bottom: 10px; font-size: 1.2rem;">Official Devfolio Portal Integration</h4>
+          <h4 style="color: #fff; margin-bottom: 10px; font-size: 1.2rem;">Official Devfolio Hackathon Portal</h4>
           <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
             The official CodeRave 2.0 Devfolio portal link will be activated shortly. Submit your Day 1 PPT now to secure your early priority review slot!
           </p>
-          <button class="hero-btn primary" disabled style="opacity: 0.7; cursor: not-allowed; margin: 0 auto;">
-            Devfolio Link Activating Soon
+          <button class="hero-btn primary" disabled style="opacity: 0.85; cursor: pointer; margin: 0 auto;">
+            Devfolio Hackathon Link Releasing Soon
           </button>
         </div>
       </div>

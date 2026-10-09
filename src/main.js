@@ -244,7 +244,7 @@ function initFlipCards() {
 }
 
 // ==========================================================================
-// 5. Interactive PPT & Devfolio Registration Modal
+// 5. Interactive Hackathon Portal & PPT Submission Modal
 // ==========================================================================
 function initModal() {
   const modal = document.getElementById('register-modal');
@@ -292,13 +292,13 @@ function initModal() {
       e.preventDefault();
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 100,
-          spread: 70,
+          particleCount: 120,
+          spread: 75,
           origin: { y: 0.6 },
           colors: ['#FF8800', '#FA002D', '#FFFFFF']
         });
       }
-      alert('🎉 PPT Submission Received! Your team will be reviewed for Day 1 shortlisting. Keep your SLIET email handy!');
+      alert('🎉 PPT Submission Successfully Logged! Your team is queued for Day 1 jury review. Keep your SLIET email handy!');
       closeModal();
       pptForm.reset();
     });
@@ -308,31 +308,55 @@ function initModal() {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Thank you! Your query has been submitted to the Internwell SLIET organizing team.');
+      alert('Thank you! Your query has been received by Internwell SLIET.');
       contactForm.reset();
     });
   }
 }
 
 // ==========================================================================
-// 6. Loading Overlay Fade Out (CycleOne Style)
+// 6. 5-Second Loading Overlay with Official Logo & Circular Countdown
 // ==========================================================================
 function initLoader() {
   const overlay = document.getElementById('loading-overlay');
-  if (overlay) {
-    const hideOverlay = () => {
-      overlay.classList.add('fade-out');
-      setTimeout(() => {
-        overlay.style.display = 'none';
-      }, 600);
-    };
+  const timerNum = document.getElementById('loader-timer');
+  const timerProg = document.getElementById('loader-timer-prog');
+  const skipBtn = document.getElementById('loader-skip-btn');
 
-    if (document.readyState === 'complete') {
-      setTimeout(hideOverlay, 400);
-    } else {
-      window.addEventListener('load', () => setTimeout(hideOverlay, 400));
+  if (!overlay) return;
+
+  let secondsLeft = 5;
+  const totalSeconds = 5;
+  const circumference = 220; // 2 * Math.PI * 35 approx
+
+  let isDismissed = false;
+  const dismissLoader = () => {
+    if (isDismissed) return;
+    isDismissed = true;
+    overlay.classList.add('fade-out');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 700);
+  };
+
+  skipBtn?.addEventListener('click', dismissLoader);
+
+  const countdownInterval = setInterval(() => {
+    secondsLeft--;
+    if (timerNum) {
+      timerNum.textContent = secondsLeft > 0 ? String(secondsLeft) : '0';
     }
-  }
+    if (timerProg) {
+      const fraction = Math.max(0, secondsLeft / totalSeconds);
+      const offset = circumference * (1 - fraction);
+      timerProg.style.strokeDashoffset = String(offset);
+    }
+
+    if (secondsLeft <= 0) {
+      clearInterval(countdownInterval);
+      setTimeout(dismissLoader, 400);
+    }
+  }, 1000);
 }
 
 // ==========================================================================
