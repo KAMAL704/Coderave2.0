@@ -18,6 +18,9 @@
   
   <!-- AOS CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- CodeRave & CycleOne Design System Stylesheet -->
+  <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
   <!-- CycleOne Style Preloader Overlay -->
@@ -818,7 +821,11 @@
     });
   </script>
 
-  <!-- Main JavaScript Bundle -->
-  <script type="module" src="/src/main.js"></script>
+  <!-- External CDN Libraries (CycleOne Architecture) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+
+  <!-- Main Application Logic -->
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>

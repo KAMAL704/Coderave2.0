@@ -1,6 +1,10 @@
-import './style.css';
-import * as THREE from 'three';
-import confetti from 'canvas-confetti';
+// ==========================================================================
+// CodeRave 2.0 — CycleOne.tech Particle System & Interactions
+// Compatible with both direct static serving and Vite bundling
+// ==========================================================================
+
+const THREE = window.THREE;
+const confetti = window.confetti || function () {};
 
 // ==========================================================================
 // 1. CycleOne Interactive Three.js Particle Canvas
@@ -14,7 +18,7 @@ const repelStrength = 0.12;
 
 function initParticles() {
   const canvas = document.getElementById('particleCanvas');
-  if (!canvas) return;
+  if (!canvas || !window.THREE) return;
 
   scene = new THREE.Scene();
 
@@ -234,7 +238,6 @@ function initCountdown() {
 function initFlipCards() {
   document.querySelectorAll('.team-member-flip').forEach(card => {
     card.addEventListener('click', () => {
-      // Toggle flipped on touch/click
       card.classList.toggle('flipped');
     });
   });
@@ -287,12 +290,14 @@ function initModal() {
   if (pptForm) {
     pptForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#FF8800', '#FA002D', '#FFFFFF']
-      });
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#FF8800', '#FA002D', '#FFFFFF']
+        });
+      }
       alert('🎉 PPT Submission Received! Your team will be reviewed for Day 1 shortlisting. Keep your SLIET email handy!');
       closeModal();
       pptForm.reset();
@@ -315,21 +320,25 @@ function initModal() {
 function initLoader() {
   const overlay = document.getElementById('loading-overlay');
   if (overlay) {
-    window.addEventListener('load', () => {
+    const hideOverlay = () => {
+      overlay.classList.add('fade-out');
       setTimeout(() => {
-        overlay.classList.add('fade-out');
-        setTimeout(() => {
-          overlay.style.display = 'none';
-        }, 600);
-      }, 500);
-    });
+        overlay.style.display = 'none';
+      }, 600);
+    };
+
+    if (document.readyState === 'complete') {
+      setTimeout(hideOverlay, 400);
+    } else {
+      window.addEventListener('load', () => setTimeout(hideOverlay, 400));
+    }
   }
 }
 
 // ==========================================================================
 // Main Initialization
 // ==========================================================================
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   initParticles();
   animateParticles();
   initNavigation();
@@ -337,4 +346,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initFlipCards();
   initModal();
   initLoader();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
