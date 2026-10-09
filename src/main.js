@@ -348,6 +348,110 @@ function initLoader() {
 }
 
 // ==========================================================================
+// 7. Past Events Photo Gallery & Full-Screen Lightbox
+// ==========================================================================
+function initGallery() {
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('gallery-lightbox');
+  const closeBtn = document.getElementById('lightbox-close-btn');
+  const prevBtn = document.getElementById('lightbox-prev-btn');
+  const nextBtn = document.getElementById('lightbox-next-btn');
+  const mediaImg = document.getElementById('lightbox-media-img');
+  const badgePill = document.getElementById('lightbox-badge-pill');
+  const titleEl = document.getElementById('lightbox-caption-title');
+  const descEl = document.getElementById('lightbox-caption-desc');
+  const dateEl = document.getElementById('lightbox-date-lbl');
+
+  if (!galleryItems.length) return;
+
+  let currentVisibleItems = [...galleryItems];
+  let activeIndex = 0;
+
+  // Category Filtering
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      currentVisibleItems = [];
+      galleryItems.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (filter === 'all' || itemCat === filter) {
+          item.style.display = 'flex';
+          currentVisibleItems.push(item);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Lightbox View Populator
+  const updateLightboxContent = (index) => {
+    if (!currentVisibleItems.length) return;
+    activeIndex = (index + currentVisibleItems.length) % currentVisibleItems.length;
+    const item = currentVisibleItems[activeIndex];
+
+    const img = item.querySelector('.gallery-img');
+    const badge = item.querySelector('.gallery-badge');
+    const title = item.querySelector('.gallery-info h3');
+    const desc = item.querySelector('.gallery-info p');
+    const date = item.querySelector('.gallery-date');
+
+    if (mediaImg && img) {
+      mediaImg.src = img.src;
+      mediaImg.alt = img.alt || 'Event Photo';
+    }
+    if (badgePill && badge) badgePill.textContent = badge.textContent.trim();
+    if (titleEl && title) titleEl.textContent = title.textContent.trim();
+    if (descEl && desc) descEl.textContent = desc.textContent.trim();
+    if (dateEl && date) dateEl.textContent = date.textContent.trim();
+  };
+
+  const openLightbox = (item) => {
+    if (!lightbox) return;
+    const idx = currentVisibleItems.indexOf(item);
+    activeIndex = idx >= 0 ? idx : 0;
+    updateLightboxContent(activeIndex);
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  prevBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    updateLightboxContent(activeIndex - 1);
+  });
+  nextBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    updateLightboxContent(activeIndex + 1);
+  });
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (!lightbox || !lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') updateLightboxContent(activeIndex - 1);
+    if (e.key === 'ArrowRight') updateLightboxContent(activeIndex + 1);
+  });
+}
+
+// ==========================================================================
 // Main Initialization
 // ==========================================================================
 function initApp() {
@@ -358,6 +462,7 @@ function initApp() {
   initFlipCards();
   initModal();
   initLoader();
+  initGallery();
 }
 
 if (document.readyState === 'loading') {

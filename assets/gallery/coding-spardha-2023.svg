@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1f18"/>
+      <stop offset="50%" stop-color="#091410"/>
+      <stop offset="100%" stop-color="#040907"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E676"/>
+      <stop offset="100%" stop-color="#00B0FF"/>
+    </linearGradient>
+    <radialGradient id="glow5" cx="40%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#00E676" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#bgGrad5)"/>
+  <rect width="800" height="500" rx="16" fill="url(#glow5)"/>
+  <rect x="2" y="2" width="796" height="496" rx="15" fill="none" stroke="#00E676" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(60, 45)">
+    <rect x="0" y="0" width="210" height="34" rx="17" fill="#00E676" fill-opacity="0.18" stroke="#00E676" stroke-width="1.5"/>
+    <text x="105" y="22" fill="#00E676" font-family="Arial, sans-serif" font-weight="800" font-size="13" letter-spacing="1.5" text-anchor="middle">FOUNDATION EVENT • 2023</text>
+  </g>
+
+  <!-- Algorithm Graphic -->
+  <g transform="translate(60, 110)">
+    <rect x="160" y="20" width="360" height="170" rx="14" fill="#091811" stroke="#00E676" stroke-width="2"/>
+    
+    <!-- Code terminal -->
+    <rect x="180" y="45" width="320" height="120" rx="8" fill="#040b08"/>
+    <text x="200" y="75" fill="#00E676" font-family="monospace" font-size="14">&gt; CODING SPARDHA 2023</text>
+    <text x="200" y="105" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="800" font-size="20">Algorithmic Coding Arena</text>
+    <text x="200" y="135" fill="#A0A5BA" font-family="monospace" font-size="13">350+ Participants • Speed Coding Matrix</text>
+  </g>
+
+  <!-- Description -->
+  <g transform="translate(60, 390)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="900" font-size="28">Coding Spardha (2023 Edition)</text>
+    <text x="0" y="30" fill="#A0A5BA" font-family="Arial, sans-serif" font-size="16">The inaugural collegiate contest that sparked SLIET's vibrant programming revolution.</text>
+    <text x="0" y="60" fill="#00E676" font-family="Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="1">ALGORITHMS • DATA STRUCTURES • SPEED CODING DUELS</text>
+  </g>
+</svg>

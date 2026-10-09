@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e141a"/>
+      <stop offset="50%" stop-color="#120c12"/>
+      <stop offset="100%" stop-color="#070407"/>
+    </linearGradient>
+    <linearGradient id="neonRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FA002D"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="70%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FA002D" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#bgGrad2)"/>
+  <rect width="800" height="500" rx="16" fill="url(#glow2)"/>
+  <rect x="2" y="2" width="796" height="496" rx="15" fill="none" stroke="#FA002D" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(60, 45)">
+    <rect x="0" y="0" width="180" height="34" rx="17" fill="#FA002D" fill-opacity="0.18" stroke="#FA002D" stroke-width="1.5"/>
+    <text x="90" y="22" fill="#FA002D" font-family="Arial, sans-serif" font-weight="800" font-size="13" letter-spacing="1.5" text-anchor="middle">EVENT PHOTO • 2024</text>
+  </g>
+
+  <!-- Presentation Stage Graphic -->
+  <g transform="translate(60, 110)">
+    <!-- Main Projector Screen -->
+    <rect x="160" y="20" width="360" height="180" rx="14" fill="#141018" stroke="#FA002D" stroke-width="2.5"/>
+    
+    <!-- Code presentation on screen -->
+    <rect x="180" y="45" width="320" height="130" rx="8" fill="#08060c"/>
+    <circle cx="205" cy="65" r="5" fill="#FA002D"/>
+    <circle cx="225" cy="65" r="5" fill="#FF8800"/>
+    <circle cx="245" cy="65" r="5" fill="#4CAF50"/>
+    
+    <text x="270" y="70" fill="#FA002D" font-family="monospace" font-size="12">class LiveDemoPresentation</text>
+    <text x="205" y="105" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="900" font-size="22">JURY EVALUATION DEMO</text>
+    <text x="205" y="135" fill="#FF8800" font-family="Arial, sans-serif" font-weight="600" font-size="14">Pine Labs Engineers &amp; SLIET Faculty Panel</text>
+
+    <!-- Presenter & Podium -->
+    <rect x="80" y="140" width="45" height="70" rx="6" fill="#2a1824" stroke="#FA002D"/>
+    <circle cx="102" cy="115" r="16" fill="#FA002D" fill-opacity="0.8"/>
+  </g>
+
+  <!-- Description -->
+  <g transform="translate(60, 390)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="900" font-size="28">Live Demo Pitches &amp; Jury Defense</text>
+    <text x="0" y="30" fill="#A0A5BA" font-family="Arial, sans-serif" font-size="16">Finalist teams presented working software on stage before distinguished tech juries.</text>
+    <text x="0" y="60" fill="#FA002D" font-family="Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="1">STAGE DEMOS • ARCHITECTURE DEFENSE • PINE LABS MENTORS</text>
+  </g>
+</svg>

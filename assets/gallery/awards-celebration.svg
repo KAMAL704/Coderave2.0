@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1a10"/>
+      <stop offset="50%" stop-color="#120e06"/>
+      <stop offset="100%" stop-color="#070502"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FF8800"/>
+    </linearGradient>
+    <radialGradient id="glow4" cx="50%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#bgGrad4)"/>
+  <rect width="800" height="500" rx="16" fill="url(#glow4)"/>
+  <rect x="2" y="2" width="796" height="496" rx="15" fill="none" stroke="#FFD700" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(60, 45)">
+    <rect x="0" y="0" width="200" height="34" rx="17" fill="#FFD700" fill-opacity="0.18" stroke="#FFD700" stroke-width="1.5"/>
+    <text x="100" y="22" fill="#FFD700" font-family="Arial, sans-serif" font-weight="800" font-size="13" letter-spacing="1.5" text-anchor="middle">GRAND FINALE • TROPHIES</text>
+  </g>
+
+  <!-- Trophy Illustration -->
+  <g transform="translate(60, 110)">
+    <!-- Stage Pedestal -->
+    <rect x="220" y="20" width="240" height="170" rx="14" fill="#18140c" stroke="#FFD700" stroke-width="2"/>
+    
+    <!-- Big Trophy Graphic -->
+    <circle cx="340" cy="70" r="30" fill="url(#goldGrad)"/>
+    <path d="M320 60 L360 60 L350 90 L330 90 Z" fill="#000"/>
+    <rect x="333" y="90" width="14" height="25" fill="url(#goldGrad)"/>
+    <rect x="315" y="115" width="50" height="14" rx="4" fill="url(#goldGrad)"/>
+    
+    <text x="340" y="155" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="900" font-size="18" text-anchor="middle">CHAMPIONS FELICITATION</text>
+    <text x="340" y="175" fill="#FFD700" font-family="Arial, sans-serif" font-weight="700" font-size="12" letter-spacing="1" text-anchor="middle">TROPHIES &amp; SWAG KITS REVEAL</text>
+  </g>
+
+  <!-- Description -->
+  <g transform="translate(60, 390)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="900" font-size="28">Grand Felicitation &amp; Awards Ceremony</text>
+    <text x="0" y="30" fill="#A0A5BA" font-family="Arial, sans-serif" font-size="16">Crowning our hackathon champions with prestigious trophies, badges, and internships.</text>
+    <text x="0" y="60" fill="#FFD700" font-family="Arial, sans-serif" font-weight="700" font-size="14" letter-spacing="1">TROPHIES • CERTIFICATES • INTERNWELL FAST-TRACK OFFERS</text>
+  </g>
+</svg>
