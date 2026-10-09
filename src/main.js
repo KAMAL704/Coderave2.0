@@ -244,15 +244,12 @@ function initFlipCards() {
 }
 
 // ==========================================================================
-// 5. Interactive Hackathon Portal & PPT Submission Modal
+// 5. Dedicated Hackathon Registration Portal Modal
 // ==========================================================================
 function initModal() {
   const modal = document.getElementById('register-modal');
   const closeBtn = document.getElementById('modal-close-btn');
-  const tabBtns = document.querySelectorAll('.modal-tab-btn');
-  const tabPanels = document.querySelectorAll('.modal-tab-panel');
   const openTriggers = document.querySelectorAll('.open-register-trigger');
-  const pptForm = document.getElementById('ppt-submission-form');
 
   if (!modal) return;
 
@@ -277,18 +274,9 @@ function initModal() {
     if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
   });
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tabId = btn.getAttribute('data-tab');
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(`tab-${tabId}`)?.classList.add('active');
-    });
-  });
-
-  if (pptForm) {
-    pptForm.addEventListener('submit', (e) => {
+  const hackathonForm = document.getElementById('hackathon-register-form');
+  if (hackathonForm) {
+    hackathonForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (typeof confetti === 'function') {
         confetti({
@@ -298,9 +286,9 @@ function initModal() {
           colors: ['#FF8800', '#FA002D', '#FFFFFF']
         });
       }
-      alert('🎉 PPT Submission Successfully Logged! Your team is queued for Day 1 jury review. Keep your SLIET email handy!');
+      alert('🎉 Team Registered for Alert! You will receive an immediate notification the moment the Devfolio Hackathon Portal link opens.');
       closeModal();
-      pptForm.reset();
+      hackathonForm.reset();
     });
   }
 

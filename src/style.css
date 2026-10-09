@@ -352,6 +352,8 @@ h2 {
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(255, 136, 0, 0.4);
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-cta-btn:hover {
@@ -580,7 +582,7 @@ h2 {
   line-height: 1.1;
 }
 
-/* Hero Action CTAs — Direct Hackathon Links */
+/* Hero Action CTAs — Direct Hackathon Registration */
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -625,21 +627,6 @@ h2 {
 .hero-btn.secondary:hover {
   background: rgba(255, 136, 0, 0.15);
   transform: translateY(-3px);
-}
-
-.tag-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  background: rgba(255, 136, 0, 0.15);
-  border: 1px solid rgba(255, 136, 0, 0.3);
-  border-radius: 12px;
-  font-size: 0.7rem;
-  color: var(--primary-color);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 /* Hero Countdown Box */
@@ -687,70 +674,6 @@ h2 {
   font-weight: 700;
   color: var(--primary-color);
   transform: translateY(-4px);
-}
-
-/* Past Event Photo Strip in First Page */
-.hero-past-strip {
-  margin-top: 2.2rem;
-  width: 100%;
-}
-
-.hero-past-title {
-  font-size: 0.82rem;
-  letter-spacing: 2px;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero-past-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 12px;
-}
-
-.hero-past-mini-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 136, 0, 0.2);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: block;
-}
-
-.hero-past-mini-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--primary-color);
-  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.25);
-}
-
-.hero-past-mini-card img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-past-mini-info {
-  padding: 8px 12px;
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-past-mini-name {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.hero-past-mini-sub {
-  font-size: 0.72rem;
-  color: var(--primary-color);
 }
 
 /* ==========================================================================
@@ -879,93 +802,6 @@ h2 {
   color: var(--text-secondary);
   font-size: 0.88rem;
   line-height: 1.5;
-}
-
-/* ==========================================================================
-   PAST EVENTS SECTION (#past-events)
-   ========================================================================== */
-#past-events {
-  position: relative;
-  background: linear-gradient(180deg, #0a0a0c 0%, #000000 100%);
-  padding: 6rem 5% 5rem;
-}
-
-.past-events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.past-event-item {
-  background: var(--card-background);
-  border: 1px solid rgba(255, 136, 0, 0.2);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-  transition: all 0.35s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.past-event-item:hover {
-  transform: translateY(-8px);
-  border-color: var(--primary-color);
-  box-shadow: 0 12px 35px rgba(255, 136, 0, 0.3);
-}
-
-.past-event-img-wrap {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
-.past-event-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.past-event-item:hover .past-event-img-wrap img {
-  transform: scale(1.06);
-}
-
-.past-event-body {
-  padding: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.past-event-tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--primary-color);
-  background: rgba(255, 136, 0, 0.12);
-  border: 1px solid rgba(255, 136, 0, 0.25);
-  padding: 3px 10px;
-  border-radius: 20px;
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-  align-self: flex-start;
-}
-
-.past-event-body h3 {
-  font-size: 1.3rem;
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-}
-
-.past-event-body p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -1705,7 +1541,7 @@ h2 {
 }
 
 /* ==========================================================================
-   MODAL DIALOG (Hackathon Portal & PPT Submission)
+   MODAL DIALOG (Dedicated Hackathon Link Registration Portal)
    ========================================================================== */
 .modal-overlay {
   position: fixed;
@@ -1733,7 +1569,7 @@ h2 {
   border: 2px solid var(--primary-color);
   box-shadow: 0 15px 50px rgba(255, 136, 0, 0.3);
   border-radius: 20px;
-  max-width: 650px;
+  max-width: 620px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -1757,36 +1593,83 @@ h2 {
   color: var(--secondary-color);
 }
 
-.modal-tabs {
-  display: flex;
-  gap: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 20px;
+/* Dedicated Hackathon Register Card in Modal */
+.hackathon-register-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 136, 0, 0.25);
+  border-radius: 16px;
+  padding: 22px;
 }
 
-.modal-tab-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  padding: 10px 16px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.modal-tab-btn.active {
+.hackathon-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 136, 0, 0.15);
+  border: 1px solid rgba(255, 136, 0, 0.35);
   color: var(--primary-color);
-  border-bottom-color: var(--primary-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
 }
 
-.modal-tab-panel {
-  display: none;
+.hackathon-register-card h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
 }
 
-.modal-tab-panel.active {
-  display: block;
+.hackathon-register-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.hackathon-cta-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 22px;
+  padding: 18px;
+  background: #0b0c10;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 136, 0, 0.2);
+}
+
+.hackathon-portal-link-btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  padding: 14px 24px;
+}
+
+.hackathon-link-status {
+  font-size: 0.82rem;
+  color: #ffaa44;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hackathon-notify-box {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+.hackathon-notify-box h4 {
+  font-size: 0.98rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-weight: 700;
 }
 
 /* ==========================================================================
