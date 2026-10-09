@@ -1,43 +1,48 @@
 # ⚡ CodeRave 2.0 — Official Hackathon Website
 
 > **CODE • COLLABORATE • INNOVATE**  
-> Organized exclusively for **SLIET Students** by **Internwell SLIET** in collaboration with **SSDC (SLIET Software Development Club)** at **Sant Longowal Institute of Engineering and Technology (SLIET), Punjab**.  
+> Organized exclusively for **SLIET Students** by **Internwell SLIET** at **Sant Longowal Institute of Engineering and Technology (SLIET), Punjab**.  
 > **Event Dates**: 28th – 29th November, 2026
 
 ---
 
-## 🌟 Tournament Structure & Highlights
+## 🌟 Visual Style & Tournament Highlights
 
-1. **Round 1 (28 Nov 2026) — PPT Submission & Screening**:
-   - Both **Online (portal submission)** and **Offline (SLIET campus desk)** submission modes available.
-   - Evaluation of problem statements, architectures, and feasibility.
-   - Announcement of shortlisted finalist teams.
+1. **DubHacks-Inspired Interactive Animation**:
+   - Signature **fluid scroll-driven background color transitions**:
+     - **Hero**: Coral Pink (`#ff627d`)
+     - **About**: Creamy Off-White (`#fcfaf7`)
+     - **What's Going Down (Rounds & Tracks)**: Sunny Yellow (`#ffd13b`)
+     - **Schedule & FAQ**: Sky Blue (`#4bb9f9`)
+     - **Sponsors & Organizers**: Deep Midnight Navy (`#0b1a30`)
+   - 8 Illustrated **3D Isometric Block Letters**: **C • O • D • E • R • A • V • E** with organic floating animations.
+   - Ambient WebGL 3D geometry (Three.js) with responsive camera parallax.
 
-2. **Round 2 (29 Nov 2026) — 24-Hour Live Demo Build Challenge**:
-   - Shortlisted teams receive a 24-hour sprint to build and deploy working prototypes.
-   - Continuous mentorship from SSDC and senior developers.
+2. **2-Day Tournament Architecture**:
+   - **Round 1 (28 Nov 2026) — PPT Submission & Screening**:
+     - Both **Online (portal submission)** and **Offline (SLIET campus desk)** submission modes.
+     - Evaluation of problem statements, architectures, and feasibility.
+     - Announcement of shortlisted finalist teams.
+   - **Round 2 (29 Nov 2026) — 24-Hour Live Demo Build Challenge**:
+     - Shortlisted teams receive a 24-hour sprint to build, debug, and deploy functional prototypes.
+     - Mentorship checkpoints with industry seniors.
+   - **Grand Finale — Live Pitching & Jury Verdict**:
+     - Teams demonstrate functional code before the jury panel.
+     - Winner selection and honours.
 
-3. **Grand Finale — Live Pitching & Judging**:
-   - Teams demonstrate functional code before the jury panel.
-   - Final evaluation and winner honours.
-
-4. **Prizes & Rewards**:
+3. **Prizes & Rewards**:
    - Prize pool to be revealed soon (Cash prizes, winner trophies, mementos, official merchandise, verified certificates, and internship referral pipelines through Internwell).
 
-5. **Past Backers & Sponsors Showcase**:
+4. **Past Backers & Sponsors Showcase**:
    - Backed in past editions by Coca-Cola, Dell, State Bank of India, Coding Minutes, Infowiz, Red FM 93.5, Beyond Snack, Miro, Gather, Meta, and Šviesa.
-
-6. **Clean Modern Dashboard Aesthetic**:
-   - Attractive light-mode hackathon dashboard styling with smooth Three.js 3D ambient animated background.
-   - Interactive schedule timeline tabs (Day 1 vs Day 2), real-time countdown to Nov 28, 2026, and team registration modal.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Core**: Vanilla HTML5, Vanilla JavaScript (ES Modules)
-- **Styling**: Vanilla CSS (Modern Light Dashboard, Glassmorphism, Responsive)
-- **3D Graphics**: [Three.js](https://threejs.org/) (WebGL ambient geometry & particle dust)
+- **Styling**: Vanilla CSS (DubHacks Color Transitions, Responsive, Work Sans & Space Mono typography)
+- **3D Graphics**: [Three.js](https://threejs.org/) (WebGL ambient geometry & particle field)
 - **Icons**: [Lucide Icons](https://lucide.dev/)
 - **Visual FX**: [canvas-confetti](https://www.npmjs.com/package/canvas-confetti)
 - **Build Tool**: [Vite](https://vitejs.dev/)
@@ -76,4 +81,4 @@ Visit `http://localhost:5173` to explore the website.
 
 ---
 
-© 2026 CodeRave 2.0. Organized by Internwell SLIET & SSDC.
+© 2026 CodeRave 2.0. Organized exclusively by Internwell SLIET. All rights reserved.

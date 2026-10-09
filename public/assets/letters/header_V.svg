@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 280" width="200" height="250">
+  <defs>
+    <filter id="shadow-V" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="6" dy="12" stdDeviation="6" flood-color="rgba(0,0,0,0.18)"/>
+    </filter>
+  </defs>
+  <!-- 3D depth extrusion -->
+  <g transform="translate(10, 14)" opacity="0.95">
+    <path d="M 35 40 L 95 240 L 140 240 L 200 40 L 150 40 L 115 175 L 85 40 Z" fill="#2E86DE" />
+  </g>
+  <g transform="translate(5, 7)" opacity="0.6">
+    <path d="M 35 40 L 95 240 L 140 240 L 200 40 L 150 40 L 115 175 L 85 40 Z" fill="#2E86DE" />
+  </g>
+  <!-- Front face -->
+  <g filter="url(#shadow-V)">
+    <path d="M 35 40 L 95 240 L 140 240 L 200 40 L 150 40 L 115 175 L 85 40 Z" fill="#54A0FF" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+</svg>
