@@ -193,7 +193,7 @@ function initNavigation() {
 }
 
 // ==========================================================================
-// 3. Real-Time Countdown to November 28, 2026, 09:00 AM IST
+// 3. Real-Time Countdown to February 09, 2027, 09:00 AM IST
 // ==========================================================================
 function initCountdown() {
   const daysEl = document.getElementById('timer-days');
@@ -203,7 +203,7 @@ function initCountdown() {
 
   if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
-  const targetDate = new Date('2026-11-28T09:00:00+05:30').getTime();
+  const targetDate = new Date('2027-02-09T09:00:00+05:30').getTime();
 
   function update() {
     const now = new Date().getTime();
