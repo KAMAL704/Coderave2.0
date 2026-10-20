@@ -1727,151 +1727,317 @@ h2 {
   line-height: 1.5;
 }
 
-/* Dual Track Prizes Styling */
-.prizes-tracks-wrapper {
+/* ==========================================================================
+   UNIFIED PRIZES & RECOGNITION (Podium 1st, 2nd, 3rd)
+   ========================================================================== */
+.unified-prizes-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-bottom: 3.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  align-items: stretch;
 }
 
-.prize-track-column {
-  background: rgba(18, 19, 24, 0.9);
-  border: 1px solid rgba(255, 136, 0, 0.25);
+.unified-prize-card {
+  background: rgba(18, 19, 25, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  padding: 32px 28px;
+  padding: 35px 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  text-align: center;
   position: relative;
-  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 
-.prize-track-column.offline-track {
-  border-color: rgba(255, 136, 0, 0.45);
-  box-shadow: 0 10px 40px rgba(255, 136, 0, 0.12);
+.unified-prize-card.champion {
+  border: 2px solid #FFD700;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(18, 19, 26, 0.98) 100%);
+  transform: translateY(-8px);
+  box-shadow: 0 18px 50px rgba(255, 215, 0, 0.22);
 }
 
-.prize-track-column.online-track {
-  border-color: rgba(0, 200, 255, 0.35);
-  box-shadow: 0 10px 40px rgba(0, 180, 255, 0.1);
+.unified-prize-card.second {
+  border: 1px solid rgba(192, 192, 192, 0.45);
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.05) 0%, rgba(18, 19, 26, 0.98) 100%);
 }
 
-.track-header-box {
+.unified-prize-card.third {
+  border: 1px solid rgba(205, 127, 50, 0.45);
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.05) 0%, rgba(18, 19, 26, 0.98) 100%);
+}
+
+.unified-prize-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 50px rgba(255, 136, 0, 0.25);
+}
+
+.prize-rank-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 1.4rem;
+}
+
+.prize-rank-pill.gold {
+  background: linear-gradient(135deg, #FFD700, #FFA000);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.prize-rank-pill.silver {
+  background: rgba(255, 255, 255, 0.12);
+  color: #E0E0E0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.prize-rank-pill.bronze {
+  background: rgba(205, 127, 50, 0.15);
+  color: #CD7F32;
+  border: 1px solid rgba(205, 127, 50, 0.4);
+}
+
+.unified-prize-medal {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.6));
+}
+
+.unified-prize-card h3 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+
+.unified-prize-card p.prize-desc {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.prize-perks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
 }
 
-.track-pill-label {
-  align-self: flex-start;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.track-pill-label.offline {
-  background: rgba(255, 136, 0, 0.15);
-  color: #FF8800;
-  border: 1px solid rgba(255, 136, 0, 0.4);
-}
-
-.track-pill-label.online {
-  background: rgba(0, 200, 255, 0.15);
-  color: #00E5FF;
-  border: 1px solid rgba(0, 200, 255, 0.4);
-}
-
-.track-header-box h3 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #FFFFFF;
-}
-
-.track-requirement-notice {
+.prize-perks-list li {
   font-size: 0.85rem;
-  color: #E0E0E0;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 10px 14px;
-  border-radius: 10px;
-  border-left: 3px solid var(--primary-color);
-  line-height: 1.5;
-}
-
-.prize-tier-cards {
+  color: #d1d5db;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  gap: 8px;
 }
 
-.prize-tier-card {
+.prize-perks-list li i {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   REIGNITION — INTERNWELL SLIET CLUB RELAUNCH & PRIZE REVEAL (#reignition)
+   ========================================================================== */
+#reignition {
+  position: relative;
+  background: linear-gradient(135deg, rgba(12, 10, 18, 0.98), rgba(0, 0, 0, 0.98));
+  padding: 6rem 5% 5rem;
+}
+
+.reignition-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(255, 136, 0, 0.08) 0%, rgba(18, 19, 26, 0.96) 100%);
+  border: 2px solid rgba(255, 136, 0, 0.4);
+  border-radius: 28px;
+  padding: 3.5rem 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.reignition-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #FF1744, #FF8800);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 18px rgba(255, 23, 68, 0.35);
+}
+
+.reignition-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2.5rem;
+}
+
+.reignition-title-content h3 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.reignition-title-content p {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.reignition-date-chip {
+  background: rgba(255, 136, 0, 0.15);
+  border: 1px solid rgba(255, 136, 0, 0.4);
+  padding: 10px 22px;
+  border-radius: 24px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.club-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 2.8rem;
+}
+
+.club-work-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  transition: all 0.3s ease;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  transition: all 0.35s ease;
 }
 
-.prize-tier-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 136, 0, 0.35);
+.club-work-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 136, 0, 0.5);
+  background: rgba(255, 136, 0, 0.05);
 }
 
-.prize-tier-card.champion {
-  border-color: rgba(255, 215, 0, 0.4);
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.06), rgba(255, 136, 0, 0.04));
+.club-work-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
-.prize-medal-icon {
-  font-size: 2.2rem;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-  flex-shrink: 0;
-}
-
-.prize-tier-info {
-  flex: 1;
-}
-
-.prize-tier-info h4 {
+.club-work-card h4 {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #FFFFFF;
-  margin-bottom: 4px;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.club-work-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.prize-reveal-banner-box {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 136, 0, 0.15));
+  border: 2px dashed rgba(255, 215, 0, 0.5);
+  border-radius: 20px;
+  padding: 1.8rem 2.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.prize-tag-mini {
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: rgba(255, 136, 0, 0.2);
-  color: var(--primary-color);
+.prize-reveal-banner-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
 }
 
-.prize-tier-info p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
+.prize-reveal-banner-text i {
+  font-size: 2.4rem;
+  color: #FFD700;
+}
+
+.prize-reveal-banner-text h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.prize-reveal-banner-text p {
+  color: #d1d5db;
+  font-size: 0.92rem;
   margin: 0;
+}
+
+/* ==========================================================================
+   OPEN INNOVATION — NO PS & NO DOMAIN LIMIT BANNER
+   ========================================================================== */
+.open-innovation-badge-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(255, 136, 0, 0.15));
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  padding: 8px 18px;
+  border-radius: 24px;
+  color: #00E5FF;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.no-limits-banner {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.08) 0%, rgba(255, 136, 0, 0.08) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 18px;
+  padding: 1.4rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #e5e7eb;
+}
+
+.no-limits-banner i {
+  font-size: 2.2rem;
+  color: #00E5FF;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -3339,6 +3505,10 @@ h2 {
   }
 
   .funding-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .unified-prizes-grid {
     grid-template-columns: 1fr;
   }
 
